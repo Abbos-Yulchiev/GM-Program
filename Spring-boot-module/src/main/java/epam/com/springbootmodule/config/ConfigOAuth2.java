@@ -18,7 +18,7 @@ public class ConfigOAuth2 extends AuthorizationServerConfigurerAdapter {
 
     private String clientId = "pixeltrice";
     private String clientSecret = "pixeltrice-secret-key";
-    private String privateKey = "privae key";
+    private String privateKey = "private key";
     private String publicKey = "public key";
 
     @Autowired
