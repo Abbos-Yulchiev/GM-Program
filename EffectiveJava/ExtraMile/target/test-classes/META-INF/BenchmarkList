@@ -1,0 +1,2 @@
+JMH S 29 binarySearch.BinarySearchTest S 77 binarySearch.jmh_generated.BinarySearchTest_testIterativeBinarySearch_jmhTest S 25 testIterativeBinarySearch S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E U 12 MILLISECONDS E E 
+JMH S 29 binarySearch.BinarySearchTest S 77 binarySearch.jmh_generated.BinarySearchTest_testRecursiveBinarySearch_jmhTest S 25 testRecursiveBinarySearch S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E U 12 MILLISECONDS E E 

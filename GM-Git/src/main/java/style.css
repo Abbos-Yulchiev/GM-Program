@@ -1,0 +1,17 @@
+h2 {
+    color : green;
+    font-family : verdana;
+    align-item : center;
+    }
+img {
+    width : 400px;
+    height : 400px;
+}
+.images {
+    align-item :center;
+    justify-content : center
+}
+p {
+    color : blue;
+    font-size: 20px
+}

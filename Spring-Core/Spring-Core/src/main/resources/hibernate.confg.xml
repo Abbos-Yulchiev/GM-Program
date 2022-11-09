@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.epam.model.User" table="users">
+        <id name="id">
+            <generator class="assigned"></generator>
+        </id>
+        <property name="name"></property>
+        <property name="email"></property>
+    </class>
+    <class name="org.epam.model.Event" table="event">
+        <id name="id">
+            <generator class="assigned"></generator>
+        </id>
+        <property name="title"></property>
+        <property name="date"></property>
+    </class>
+    <class name="org.epam.model.Place" table="place">
+        <id name="id">
+            <generator class="assigned"></generator>
+        </id>
+        <property name="name"></property>
+    </class>
+    <class name="org.epam.model.Ticket" table="ticket">
+        <id name="id">
+            <generator class="assigned"></generator>
+        </id>
+        <property name="eventId"></property>
+        <property name="userId"></property>
+        <property name="category"></property>
+        <property name="place"></property>
+        <property name="status"></property>
+    </class>
+</hibernate-mapping>

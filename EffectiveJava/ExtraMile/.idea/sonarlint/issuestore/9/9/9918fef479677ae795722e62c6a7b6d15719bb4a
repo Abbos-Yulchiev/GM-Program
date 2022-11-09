@@ -1,0 +1,7 @@
+
+v
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¹òõı8çƒÍí©0
+j
+java:S3824"HReplace this "Map.containsKey()" with a call to "Map.computeIfAbsent()".(œí»şÿÿÿÿ8§¸Íí©0
+T
+java:S6213"8Rename this method to not match a restricted identifier.(ßş×8ìƒÍí©0

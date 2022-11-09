@@ -1,0 +1,15 @@
+
+b
+java:S1192ö"FDefine a constant instead of duplicating this literal "aaaaa" 4 times.(ÙË‹³øÿÿÿÿ
+C
+java:S1604w"(Make this anonymous inner class a lambda(¤áÉóúÿÿÿÿ
+D
+java:S1604º"(Make this anonymous inner class a lambda(ê¼«ıÿÿÿÿ
+D
+java:S1604Ç"(Make this anonymous inner class a lambda(º—úæÿÿÿÿÿ
+N	java:S106P"9Replace this use of System.out or System.err by a logger.(÷«Ø¿
+O	java:S106—"9Replace this use of System.out or System.err by a logger.(ûû•¢
+O	java:S106ã"9Replace this use of System.out or System.err by a logger.(ÅÍ˜
+O	java:S106ï"9Replace this use of System.out or System.err by a logger.(ÒÊ¤×
+T	java:S106û"9Replace this use of System.out or System.err by a logger.(Ş°Š„ùÿÿÿÿ
+O	java:S106ü"9Replace this use of System.out or System.err by a logger.(¹ÉÉ
