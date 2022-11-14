@@ -46,7 +46,10 @@ public class TicketServiceImpl implements TicketService {
     public String createTicket(TicketDTO ticketDTO) {
         List<Ticket> ticketList = new ArrayList<>();
         for (int i = 0; i < ticketDTO.getCount(); i++) {
-            ticketList.add(new Ticket(ticketDTO.getEventId(), ticketDTO.getCategories(), ticketDTO.getAddress(), ticketDTO.getPrice()));
+            ticketList.add(new Ticket(ticketDTO.getEventId(),
+                    ticketDTO.getCategories(),
+                    ticketDTO.getAddress(),
+                    ticketDTO.getPrice()));
         }
         ticketRepository.saveAll(ticketList);
         return "New [" + ticketDTO.getCount() + "] ticket(s) are created";

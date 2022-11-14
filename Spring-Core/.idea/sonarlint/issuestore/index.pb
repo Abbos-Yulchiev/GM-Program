@@ -1,12 +1,8 @@
 
-U
-%src/main/java/entity/dto/UserDTO.java,8\7\8708381a0a97631fdbe704f34596c16e4eeb8b77
 X
 (src/main/java/service/TicketService.java,6\5\6582629a9af8af2d3eb157960c3a503713933db4
 [
 +src/main/java/entity/model/TicketEvent.java,7\9\7951b858cd34e181f2b277b9513eb1cc75eb6fc9
-^
-.src/main/java/controller/TicketController.java,a\f\aff08a2fa2ac96a0a1ef88d131ab7dd804b036ef
 a
 1src/main/java/exceptions/ApiExceptionMessage.java,0\f\0fedf06ed88aeed1a01cb0382978868130549bb4
 W
@@ -15,8 +11,6 @@ W
 +src/main/java/mapper/TicketEventMapper.java,d\a\dabd0b020d080b39eccce78c0bda26fe2fe6e175
 V
 &src/main/java/mapper/TicketMapper.java,7\4\74abda35503e754f0f81deb11a6cc0c6362096a1
-U
-%src/main/java/mapper/EventMapper.java,6\6\6632b6e518d41a188e018d477a3257aaa4a2d223
 P
  src/main/java/entity/Ticket.java,5\f\5f2dbc7fdf04f74ddeb3a7986c81a4a8472c3693
 T
@@ -47,8 +41,6 @@ a
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 N
 src/main/java/entity/User.java,b\a\ba7ac8670f3f87adc8663aab792e9f47d90839bc
-g
-7src/main/java/repository/impl/TicketRepositoryImpl.java,d\8\d8ce6db517d70f82bfc1132f1f78bc67a51c11d2
 `
 0src/main/java/service/impl/EventServiceImpl.java,5\0\509f96013c3fbdf6d9281a825512226d74e90027
 W
@@ -57,17 +49,31 @@ W
 -src/main/java/repository/EventRepository.java,f\e\fe35544f10e85d2b2bf16762ead136041c4027fd
 \
 ,src/main/java/controller/UserController.java,3\a\3ac406ab7fd0ec369e673e77f88c52d3f53cf48f
-O
-src/main/java/entity/Event.java,9\4\9496ca05989e45726911614d9267b291269cff3b
-V
-&src/main/java/entity/dto/EventDTO.java,1\8\180376daa34d6867600f2caa4d327615ece75414
+M
+src/main/resources/spring.xml,4\b\4b86d68d9207451f32ef315a3249a65b74c949a1
 V
 &src/main/java/service/UserService.java,f\2\f2bf6a3d9f14ae9a85e78a6ec1a3f81261e3329c
 _
 /src/main/java/service/impl/UserServiceImpl.java,c\0\c031cec32aa84c99842a7e113b7f8532770f02f2
 \
 ,src/main/java/repository/UserRepository.java,5\6\568bd045eb818bb481a0167e90a8eb059f76f83b
-e
-5src/main/java/repository/impl/UserRepositoryImpl.java,d\1\d11e2f9b84c8a68d4f42e70d5f8cf9db486301db
+V
+&src/main/java/entity/dto/EventDTO.java,1\8\180376daa34d6867600f2caa4d327615ece75414
+U
+%src/main/java/entity/dto/UserDTO.java,8\7\8708381a0a97631fdbe704f34596c16e4eeb8b77
+O
+src/main/java/entity/Event.java,9\4\9496ca05989e45726911614d9267b291269cff3b
+U
+%src/main/java/mapper/EventMapper.java,6\6\6632b6e518d41a188e018d477a3257aaa4a2d223
+J
+src/main/java/MainApp.java,8\1\81dc6a441e53064fd676d90a54bdbed8bb400b17
 f
 6src/main/java/repository/impl/EventRepositoryImpl.java,a\5\a55d6bf015795fbb852a7417422f5d8a29e85201
+e
+5src/main/java/repository/impl/UserRepositoryImpl.java,d\1\d11e2f9b84c8a68d4f42e70d5f8cf9db486301db
+g
+7src/main/java/repository/impl/TicketRepositoryImpl.java,d\8\d8ce6db517d70f82bfc1132f1f78bc67a51c11d2
+^
+.src/main/java/controller/TicketController.java,a\f\aff08a2fa2ac96a0a1ef88d131ab7dd804b036ef
+]
+-src/main/java/controller/EventController.java,b\8\b89fa957bac8d369cb051d55239faf3b5560e682

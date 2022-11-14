@@ -5,6 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.List;
+import java.util.Map;
+
 @SpringBootApplication
 public class JdbcAdvancedApplication implements CommandLineRunner {
 
@@ -57,26 +60,32 @@ public class JdbcAdvancedApplication implements CommandLineRunner {
 
 
         String userList = """       
-                SELECT name FROM users u
-                INNER JOIN
-                	(
-                		SELECT userid1
-                		FROM friendships
-                		group by userid1
-                		HAVING count(*) > 80
-                		ORDER BY userid1 asc
-                	) as fsh
-                	on u.id = fsh.userid1
-                INNER JOIN
-                	(
-                		SELECT userid, count(*) as "amount"
-                		FROM likes
-                		group by userid
-                		HAVING count(*) > 100
-                		ORDER BY amount asc
-                	) as lk
-                	on u.id = lk.userid;
+                SELECT u.name FROM users u
+                      INNER JOIN
+                      	(
+                      		SELECT userid1
+                      		FROM friendships
+                      		GROUP BY userid1
+                      		HAVING count(*) > 80
+                      		ORDER BY userid1 asc
+                      	) AS fsh
+                      	ON u.id = fsh.userid1
+                      INNER JOIN
+                      	(
+                      		SELECT userid, count(*) as "amount"
+                      		FROM likes
+                			WHERE likes.time < '2025-03-01'
+                      		GROUP BY userid
+                      		HAVING COUNT(*) > 100
+                      		ORDER BY amount asc
+                      	) AS lk
+                     ON u.id = lk.userid;
                 """;
+
+        List<Map<String, Object>> maps = jdbcTemplate.queryForList(userList);
+        for (Map<String, Object> map : maps) {
+            System.out.println(map);
+        }
 
         String fileStore = """
                 CREATE TABLE file_storage 
