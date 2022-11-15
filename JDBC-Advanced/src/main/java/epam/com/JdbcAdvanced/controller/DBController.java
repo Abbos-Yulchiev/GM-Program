@@ -22,5 +22,4 @@ public class DBController {
     public String addTable(@RequestBody Carrier carrier) {
         return dbConnectionService.addTable(carrier);
     }
-
 }

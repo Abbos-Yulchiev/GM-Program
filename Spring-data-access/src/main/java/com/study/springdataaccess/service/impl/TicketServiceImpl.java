@@ -14,6 +14,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +65,7 @@ public class TicketServiceImpl implements TicketService {
     }
 
 
+    @Transactional()
     @Override
     public String bookTicket(long userId, long eventId, int place, Ticket.Categories categories, int amount) {
 
@@ -72,7 +74,6 @@ public class TicketServiceImpl implements TicketService {
             LOGGER.error("Exception", new InsufficientAmountException("Ticket quantity (" + amount + ") is not enough"));
             throw new InsufficientAmountException(amount, "Ticket quantity (" + amount + ") is not enough");
         }
-
 
         UserAccount userAccountInfo = userAccountRepository.getUserAccountInfo(userId);
         double ticketPrice = ticketRepository.getTicketPrice(eventId, place);
@@ -93,6 +94,7 @@ public class TicketServiceImpl implements TicketService {
         LOGGER.info("You've ordered [" + amount + "] ticket.");
         return "You've ordered [" + amount + "] ticket.";
     }
+    //TODO    When calling service methods better would be an entity or model
 
     @Override
     public Boolean cancelTicket(long id) {

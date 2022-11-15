@@ -35,7 +35,6 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
             "LIMIT 1", nativeQuery = true)
     double getTicketPrice(long eventId, int placeId);
 
-
     @Query(value = "SELECT * FROM TICKET ORDER BY id desc LIMIT 1", nativeQuery = true)
     Ticket getLastEvent();
 }

@@ -17,7 +17,6 @@ public class SpringJdbcConfig {
         dataSource.setUrl("jdbc:postgresql://localhost:5432/jdbc-advanced");
         dataSource.setUsername("postgres");
         dataSource.setPassword("mirzaolim");
-
         return dataSource;
     }
 }

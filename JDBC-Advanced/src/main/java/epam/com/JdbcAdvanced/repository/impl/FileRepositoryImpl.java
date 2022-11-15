@@ -30,7 +30,7 @@ public class FileRepositoryImpl implements FileRepository {
     public String storeFile(MultipartFile file) {
 
         Long id = jdbcTemplate.queryForObject("SELECT id FROM file_storage ORDER BY id DESC LIMIT 1", Long.class);
-        String sql = "INSERT INTO file_storage (id, filename, content, file_data) values (?, ?, ?, ?)";
+        String sql = "INSERT INTO file_storage (id, filename, content, bytes) values (?, ?, ?, ?)";
         int result = jdbcTemplate.update(connection -> {
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setLong(1, id + 1);
@@ -72,7 +72,7 @@ public class FileRepositoryImpl implements FileRepository {
         file.setFilename(resultSet.getString("filename"));
         file.setContent(resultSet.getString("content"));
 
-        InputStream fileData = resultSet.getBinaryStream("file_data");
+        InputStream fileData = resultSet.getBinaryStream("bytes");
         byte[] bytes = new byte[fileData.available()];
         file.setBytes(bytes);
         return file;
