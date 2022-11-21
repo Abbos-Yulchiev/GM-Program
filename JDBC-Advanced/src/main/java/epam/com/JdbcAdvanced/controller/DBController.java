@@ -18,8 +18,8 @@ public class DBController {
         this.dbConnectionService = dbConnectionService;
     }
 
-    @PostMapping("/addTable")
-    public String addTable(@RequestBody Carrier carrier) {
-        return dbConnectionService.addTable(carrier);
+    @PostMapping
+    public String addTable() {
+        return dbConnectionService.addTable();
     }
 }

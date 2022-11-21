@@ -17,23 +17,23 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/getUserList")
+    @GetMapping
     public List<Users> getUserList(@RequestParam(defaultValue = "0", required = false) int pageSize,
                                    @RequestParam(defaultValue = "20", required = false) int pageNum) {
         return userService.getUserList(pageSize, pageNum);
     }
 
-    @PostMapping("/addUser")
+    @PostMapping
     public String addUser(@RequestBody UserDTO userDTO) {
         return userService.addUser(userDTO);
     }
 
-    @PutMapping("/editUser/{userId}")
+    @PutMapping("/{userId}")
     public String editUser(@PathVariable long userId, @RequestBody UserDTO userDTO) {
         return userService.editUser(userId, userDTO);
     }
 
-    @DeleteMapping("/deleteUser/{userId}")
+    @DeleteMapping("/{userId}")
     public String deleteUser(@PathVariable long userId){
         return userService.deleteUser(userId);
     }

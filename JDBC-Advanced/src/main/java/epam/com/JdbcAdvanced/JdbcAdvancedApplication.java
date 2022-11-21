@@ -81,7 +81,7 @@ public class JdbcAdvancedApplication implements CommandLineRunner {
                         REFERENCES public.users (id) MATCH SIMPLE
                         ON UPDATE NO ACTION
                         ON DELETE NO ACTION,
-                    CONSTRAINT "fk_likse_userId2" FOREIGN KEY (userid2)
+                    CONSTRAINT "fk_likes_userId2" FOREIGN KEY (userid2)
                         REFERENCES public.users (id) MATCH SIMPLE
                         ON UPDATE NO ACTION
                         ON DELETE NO ACTION
@@ -170,32 +170,20 @@ public class JdbcAdvancedApplication implements CommandLineRunner {
         jdbcTemplate.execute(users);
         jdbcTemplate.execute(friendships);
         jdbcTemplate.execute(posts);
-        jdbcTemplate.execute(filesStorage);
         jdbcTemplate.execute(likes);
 
         List<Map<String, Object>> maps = jdbcTemplate.queryForList(userList);
         for (Map<String, Object> map : maps) {
             System.out.println(map);
         }
-//        String fileStore = """
-//                CREATE TABLE file_storage
-//                (id bigint PRIMARY KEY,
-//                filename VARCHAR(100),
-//                content VARCHAR,
-//                file_data bytea
-//                );
-//                """;
-//        jdbcTemplate.execute(fileStore);
     }
 
     void remover() {
-        String removeFileStorage = "DROP TABLE file_storage;";
         String removeFriendships = "DROP TABLE friendships;";
         String removeLikes = "DROP TABLE likes;";
         String removePosts = "DROP TABLE posts;";
         String removeUsers = "DROP TABLE users;";
 
-        jdbcTemplate.execute(removeFileStorage);
         jdbcTemplate.execute(removeFriendships);
         jdbcTemplate.execute(removeLikes);
         jdbcTemplate.execute(removePosts);

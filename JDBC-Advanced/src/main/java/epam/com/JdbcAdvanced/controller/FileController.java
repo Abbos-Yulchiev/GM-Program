@@ -1,6 +1,7 @@
 package epam.com.JdbcAdvanced.controller;
 
 import epam.com.JdbcAdvanced.service.FileService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -10,20 +11,17 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api/v1/file")
 @CrossOrigin
+@RequiredArgsConstructor
 public class FileController {
 
     private final FileService fileService;
 
-    public FileController(FileService fileService) {
-        this.fileService = fileService;
-    }
-
-    @GetMapping("/get/{id}")
+    @GetMapping("/{id}")
     public void getFile(@PathVariable Long id, HttpServletResponse response) throws IOException {
         fileService.getFile(id, response);
     }
 
-    @PostMapping("/storeFile")
+    @PostMapping
     public String storeFile(@RequestParam(name = "file") MultipartFile file) {
         return fileService.storeFile(file);
     }

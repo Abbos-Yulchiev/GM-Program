@@ -1,11 +1,15 @@
 package epam.com.JdbcAdvanced;
 
+import java.util.Random;
+
 public class Main {
+
+
     public static void main(String[] args) {
-        short bird = (short) 1921222;
-        short max = Short.MAX_VALUE;
-        short min = Short.MIN_VALUE;
-        System.out.println(1921222 + min);
-        System.out.println(bird);
+
     }
 }
+//1,2,3,4
+//1,2,3,4,5
+//1,2,3,4
+//1,2,3,4,5,6

@@ -1,7 +1,6 @@
 package epam.com.JdbcAdvanced.service.impl;
 
 
-import epam.com.JdbcAdvanced.model.dto.Carrier;
 import epam.com.JdbcAdvanced.repository.DBConnectionRepository;
 import epam.com.JdbcAdvanced.service.DBConnectionService;
 import org.springframework.stereotype.Service;
@@ -17,7 +16,7 @@ public class DBConnectionServiceImpl implements DBConnectionService {
     }
 
     @Override
-    public String addTable(Carrier carrier) {
-        return dbConnectionRepository.addTable(carrier);
+    public String addTable() {
+        return dbConnectionRepository.addTable();
     }
 }

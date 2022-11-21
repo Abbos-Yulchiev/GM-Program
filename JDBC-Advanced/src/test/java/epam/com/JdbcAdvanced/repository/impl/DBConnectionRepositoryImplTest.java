@@ -48,5 +48,29 @@ class DBConnectionRepositoryImplTest {
         assertEquals("Table created and row added with data", dBConnectionRepositoryImpl.addTable(carrier));
         verify(jdbcTemplate, atLeast(1)).execute((String) any());
     }
+
+    @Test
+    void testAddTable3() throws DataAccessException {
+        doNothing().when(jdbcTemplate).execute((String) any());
+
+        Carrier carrier = new Carrier();
+        carrier.setEndPoint(1L);
+        carrier.setName("Name");
+        carrier.setStartingPoint(1L);
+        assertEquals("Table created and row added with data", dBConnectionRepositoryImpl.addTable(carrier));
+        verify(jdbcTemplate, atLeast(1)).execute((String) any());
+    }
+
+    @Test
+    void testAddTable4() throws DataAccessException {
+        doNothing().when(jdbcTemplate).execute((String) any());
+
+        Carrier carrier = new Carrier();
+        carrier.setEndPoint(Long.MAX_VALUE);
+        carrier.setName("Name");
+        carrier.setStartingPoint(1L);
+        assertEquals("Table created and row added with data", dBConnectionRepositoryImpl.addTable(carrier));
+        verify(jdbcTemplate, atLeast(1)).execute((String) any());
+    }
 }
 

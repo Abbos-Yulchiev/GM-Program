@@ -11,6 +11,8 @@ import java.time.LocalDateTime;
 @Data
 public class Likes {
 
+    private long id;
+
     private long postId;
 
     private long userId;

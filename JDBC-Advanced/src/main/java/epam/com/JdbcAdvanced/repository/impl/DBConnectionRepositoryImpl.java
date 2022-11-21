@@ -1,38 +1,58 @@
 package epam.com.JdbcAdvanced.repository.impl;
 
-import epam.com.JdbcAdvanced.model.dto.Carrier;
 import epam.com.JdbcAdvanced.repository.DBConnectionRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import java.util.Random;
 
 @Repository
 public class DBConnectionRepositoryImpl implements DBConnectionRepository {
 
     private final JdbcTemplate jdbcTemplate;
+    Random random = new Random();
+
 
     public DBConnectionRepositoryImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
-    public String addTable(Carrier carrier) {
+    public String addTable() {
 
-        int upperBound = (carrier.getEndPoint() > 10L) ? 5 : (int) carrier.getEndPoint();
-        for (int i = 1; i <= upperBound; i++) {
-            String sql = "CREATE TABLE " + carrier.getName() + "_" + i + " " +
-                    "(id bigint Primary key, " +
-                    "row_" + i + " VARCHAR (50) NOT NULL, " +
-                    "row_" + (i + 1) + " VARCHAR (50) NOT NULL);";
-            jdbcTemplate.execute(sql);
-
-            String rows = "INSERT INTO " + carrier.getName() + "_" + i + " " +
-                    "(id, row_" + i + ", row_" + (i + 1) + ") " +
-                    "SELECT generate_series, " +
-                    "'info-" + i + "', " +
-                    "'additional info-" + i + "' " +
-                    "FROM generate_series (1, " + carrier.getEndPoint() + ")";
-            jdbcTemplate.execute(rows);
+        int randomTableCount = random.nextInt(1, 5);
+        for (int i = 0; i < randomTableCount; i++) {
+            jdbcTemplate.execute(queryBuilder());
         }
         return "Table created and row added with data";
+    }
+
+    private String generateRandomWord() {
+        StringBuilder word = new StringBuilder(10);
+        for (int i = 0; i < 10; i++) {
+            char tmp = (char) ('a' + random.nextInt('z' - 'a'));
+            word.append(tmp);
+        }
+        return word.toString();
+    }
+
+    private String queryBuilder() {
+
+        String[] types = {"bigint", "serial", "boolean", "integer", "character varying", "timestamp without time zone", "bytea"};
+        StringBuilder query = new StringBuilder(
+                "CREATE TABLE IF NOT EXISTS " + generateRandomWord() +
+                        " (id bigint Primary key"
+        );
+
+        int randomColumnCount = random.nextInt(1, 20);
+        for (int j = 0; j < randomColumnCount; j++) {
+            query
+                    .append(", ")
+                    .append(generateRandomWord())
+                    .append(" ")
+                    .append(types[random.nextInt(1, 7)]);
+        }
+        query.append(")");
+        return query.toString();
     }
 }

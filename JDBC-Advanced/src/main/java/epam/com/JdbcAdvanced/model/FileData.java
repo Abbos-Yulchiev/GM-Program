@@ -12,4 +12,6 @@ public class FileData {
     private String content;
 
     private byte[] bytes;
+
+    private String extention;
 }
