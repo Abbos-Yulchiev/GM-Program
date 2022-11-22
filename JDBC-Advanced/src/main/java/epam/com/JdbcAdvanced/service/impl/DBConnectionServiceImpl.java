@@ -16,7 +16,8 @@ public class DBConnectionServiceImpl implements DBConnectionService {
     }
 
     @Override
-    public String addTable() {
-        return dbConnectionRepository.addTable();
+    public String generateTable() {
+        return dbConnectionRepository.generateTable();
     }
+
 }

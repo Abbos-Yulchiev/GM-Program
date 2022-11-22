@@ -18,7 +18,7 @@ public class DBConnectionRepositoryImpl implements DBConnectionRepository {
     }
 
     @Override
-    public String addTable() {
+    public String generateTable() {
 
         int randomTableCount = random.nextInt(1, 5);
         for (int i = 0; i < randomTableCount; i++) {
@@ -26,6 +26,7 @@ public class DBConnectionRepositoryImpl implements DBConnectionRepository {
         }
         return "Table created and row added with data";
     }
+
 
     private String generateRandomWord() {
         StringBuilder word = new StringBuilder(10);

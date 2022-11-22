@@ -1,9 +1,7 @@
 package epam.com.JdbcAdvanced.controller;
 
-import epam.com.JdbcAdvanced.model.dto.Carrier;
 import epam.com.JdbcAdvanced.service.DBConnectionService;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +17,7 @@ public class DBController {
     }
 
     @PostMapping
-    public String addTable() {
-        return dbConnectionService.addTable();
+    public String generateTable() {
+        return dbConnectionService.generateTable();
     }
 }

@@ -34,8 +34,13 @@ public class UserController {
     }
 
     @DeleteMapping("/{userId}")
-    public String deleteUser(@PathVariable long userId){
+    public String deleteUser(@PathVariable long userId) {
         return userService.deleteUser(userId);
     }
 
+    @PostMapping("/byProcedure")
+    public Users addUserByProcedure(@RequestBody UserDTO userDTO){
+        return userService.addUserByProcedure(userDTO);
+
+    }
 }

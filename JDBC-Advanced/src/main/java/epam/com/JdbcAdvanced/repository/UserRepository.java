@@ -15,4 +15,6 @@ public interface UserRepository {
     String editUser(long userId, UserDTO userDTO);
 
     String deleteUser(long userId);
+
+    Users addUserByProcedure(UserDTO userDTO);
 }

@@ -36,4 +36,9 @@ public class UserServiceImpl implements UserService {
     public String deleteUser(long userId) {
         return userRepository.deleteUser(userId);
     }
+
+    @Override
+    public Users addUserByProcedure(UserDTO userDTO) {
+        return userRepository.addUserByProcedure(userDTO);
+    }
 }

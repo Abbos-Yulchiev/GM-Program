@@ -1,8 +1,10 @@
 package epam.com.JdbcAdvanced;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
@@ -19,6 +21,11 @@ public class JdbcAdvancedApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(JdbcAdvancedApplication.class, args);
+    }
+
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
     }
 
     @Override

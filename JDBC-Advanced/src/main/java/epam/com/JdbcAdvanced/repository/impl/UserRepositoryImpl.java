@@ -3,6 +3,7 @@ package epam.com.JdbcAdvanced.repository.impl;
 import epam.com.JdbcAdvanced.model.Users;
 import epam.com.JdbcAdvanced.model.dto.UserDTO;
 import epam.com.JdbcAdvanced.repository.UserRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -14,9 +15,11 @@ import java.util.Map;
 public class UserRepositoryImpl implements UserRepository {
 
     private final JdbcTemplate jdbcTemplate;
+    private final ModelMapper mapper;
 
-    public UserRepositoryImpl(JdbcTemplate jdbcTemplate) {
+    public UserRepositoryImpl(JdbcTemplate jdbcTemplate, ModelMapper mapper) {
         this.jdbcTemplate = jdbcTemplate;
+        this.mapper = mapper;
     }
 
     @Override
@@ -55,5 +58,42 @@ public class UserRepositoryImpl implements UserRepository {
         String sql = "DELETE FROM users WHERE id = " + userId;
         jdbcTemplate.execute(sql);
         return "User deleted with id [" + userId + "]";
+    }
+
+    @Override
+    public Users addUserByProcedure(UserDTO userDTO) {
+
+        String sql = """
+                CREATE OR REPLACE PROCEDURE\s
+                add_user(bigint, character varying, character varying, timestamp without time zone)
+                LANGUAGE 'plpgsql'
+                AS $$
+                                
+                BEGIN
+                INSERT INTO public.users(id, name, surname, birthdate) values($1, $2, $3, $4);
+                                
+                COMMIT;
+                                
+                END;
+                $$;
+                """;
+
+        jdbcTemplate.execute(sql);
+
+        StringBuilder sql2 = new StringBuilder("CALL add_user(");
+        sql2.append(userDTO.getId())
+                .append(", '")
+                .append(userDTO.getName())
+                .append("', '")
+                .append(userDTO.getSurname())
+                .append("', '")
+                .append(userDTO.getBirthday())
+                .append("')");
+
+        jdbcTemplate.execute(sql2.toString());
+
+        Users users = new Users();
+        mapper.map(userDTO, users);
+        return users;
     }
 }
