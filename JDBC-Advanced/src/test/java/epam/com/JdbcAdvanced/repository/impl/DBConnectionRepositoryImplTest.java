@@ -16,6 +16,7 @@ import static org.mockito.Mockito.*;
 @ContextConfiguration(classes = {DBConnectionRepositoryImpl.class})
 @ExtendWith(SpringExtension.class)
 class DBConnectionRepositoryImplTest {
+
     @Autowired
     private DBConnectionRepositoryImpl dBConnectionRepositoryImpl;
 

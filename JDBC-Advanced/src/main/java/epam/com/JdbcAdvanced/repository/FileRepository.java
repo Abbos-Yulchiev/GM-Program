@@ -9,5 +9,5 @@ public interface FileRepository {
 
     void getFile(Long id, HttpServletResponse response) throws IOException;
 
-    String storeFile(MultipartFile file);
+    String storeFile(MultipartFile file) throws IOException;
 }

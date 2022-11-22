@@ -1,18 +1,9 @@
 package epam.com.JdbcAdvanced.repository.impl;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 import epam.com.JdbcAdvanced.model.dto.UserDTO;
-
-import java.util.ArrayList;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.dao.DataAccessException;
@@ -20,9 +11,18 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.*;
+
 @ContextConfiguration(classes = {UserRepositoryImpl.class})
 @ExtendWith(SpringExtension.class)
 class UserRepositoryImplTest {
+    @MockBean
+    private ModelMapper modelMapper;
+
     @MockBean
     private JdbcTemplate jdbcTemplate;
 
@@ -64,7 +64,6 @@ class UserRepositoryImplTest {
         assertEquals("User edited", userRepositoryImpl.editUser(123L, userDTO));
         verify(jdbcTemplate).execute((String) any());
     }
-
 
 
     @Test

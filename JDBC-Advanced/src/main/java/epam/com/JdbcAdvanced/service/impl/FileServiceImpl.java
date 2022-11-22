@@ -23,7 +23,7 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public String storeFile(MultipartFile file) {
+    public String storeFile(MultipartFile file) throws IOException {
         return fileRepository.storeFile(file);
     }
 }

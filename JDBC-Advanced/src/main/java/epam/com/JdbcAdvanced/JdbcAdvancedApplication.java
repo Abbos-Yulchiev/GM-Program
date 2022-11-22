@@ -167,7 +167,7 @@ public class JdbcAdvancedApplication implements CommandLineRunner {
         /**
          * Tables remover
          */
-        remover();
+        /*remover();
 
         jdbcTemplate.execute(userTable);
         jdbcTemplate.execute(postsTable);
@@ -177,7 +177,7 @@ public class JdbcAdvancedApplication implements CommandLineRunner {
         jdbcTemplate.execute(users);
         jdbcTemplate.execute(friendships);
         jdbcTemplate.execute(posts);
-        jdbcTemplate.execute(likes);
+        jdbcTemplate.execute(likes);*/
 
         List<Map<String, Object>> maps = jdbcTemplate.queryForList(userList);
         for (Map<String, Object> map : maps) {

@@ -22,7 +22,7 @@ public class FileController {
     }
 
     @PostMapping
-    public String storeFile(@RequestParam(name = "file") MultipartFile file) {
+    public String storeFile(@RequestParam("file") MultipartFile file) throws IOException {
         return fileService.storeFile(file);
     }
 }
