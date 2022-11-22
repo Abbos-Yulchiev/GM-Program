@@ -2,6 +2,8 @@ package epam.com.JdbcAdvanced.repository.impl;
 
 import epam.com.JdbcAdvanced.model.FileData;
 import epam.com.JdbcAdvanced.repository.FileRepository;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.FileCopyUtils;
@@ -16,11 +18,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
 
+@PropertySource("application.properties")
 @Repository
 public class FileRepositoryImpl implements FileRepository {
 
     private final JdbcTemplate jdbcTemplate;
-    private final String FILEPATH = "D:\\Projects\\GM-Program\\JDBC-Advanced\\src\\main\\storedFiles\\";
+
+    @Value("${file.loader.path}")
+    private String FILEPATH;
 
     public FileRepositoryImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
