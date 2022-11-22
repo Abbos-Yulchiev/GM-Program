@@ -34,4 +34,4 @@ build/
 
 ### local file uplod part
 src/main/storedFiles
-src/main/resources/application.properties
+src/main/resources
