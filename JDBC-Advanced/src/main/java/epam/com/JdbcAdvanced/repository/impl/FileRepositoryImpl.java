@@ -55,7 +55,10 @@ public class FileRepositoryImpl implements FileRepository {
     @Override
     public String storeFile(MultipartFile file) throws IOException {
 
-        String sql = "INSERT INTO file_storage (filename, content, file_path) VALUES ('" + file.getOriginalFilename() + "', '" + file.getContentType() + "', '" + FILEPATH + file.getOriginalFilename() + "')";
+        String sql = "INSERT INTO file_storage (filename, content, file_path) VALUES ('" +
+                file.getOriginalFilename() + "', '" +
+                file.getContentType() +
+                "', '" + FILEPATH + file.getOriginalFilename() + "')";
         jdbcTemplate.execute(sql);
 
         try (FileOutputStream outputStream = new FileOutputStream(FILEPATH + file.getOriginalFilename())) {
