@@ -1,4 +1,4 @@
-package demo.com.RESTAPIArchitecture.entity;
+package demo.com.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,12 +10,12 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-//@Entity
-//@Table(name = "events")
+@Entity
+@Table(name = "events")
 public class Event {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String title;
