@@ -3,12 +3,12 @@ package demo.com.impl;
 import demo.com.entity.Event;
 import demo.com.entity.dto.EventDTO;
 import demo.com.exceptions.NotFoundException;
+import demo.com.repository.EventServiceRepository;
+import demo.com.service.EventService;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import demo.com.repository.EventServiceRepository;
-import demo.com.service.EventService;
 
 import java.util.List;
 
@@ -55,7 +55,7 @@ public class EventServiceImpl implements EventService {
         Event event = repository.findById(id).orElseThrow(()
                 -> new NotFoundException("Invalid id, event not found with di [" + id + "]"));
 
-        mapper.map(event, eventDTO);
+        mapper.map(eventDTO, event);
         return repository.save(event);
     }
 

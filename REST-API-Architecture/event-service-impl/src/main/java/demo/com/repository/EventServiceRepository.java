@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface EventServiceRepository extends JpaRepository<Event, Long> {
 
-    @Query(value = "SELECT * FROM EVENT WHERE title = ?1", nativeQuery = true)
+    @Query(value = "SELECT * FROM events WHERE title = ?1", nativeQuery = true)
     List<Event> getAllEventsByTitle(String title);
 }

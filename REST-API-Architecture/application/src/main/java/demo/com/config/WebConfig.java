@@ -35,6 +35,3 @@ public class WebConfig implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 }
-
-//TODO : Need to configure Swagger and need to allow for working it
-// Need to check out why JPA is not creating table into DB

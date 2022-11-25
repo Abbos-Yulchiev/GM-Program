@@ -24,7 +24,7 @@ public class SwaggerConfig {
                 .paths(PathSelectors.ant("/api/v1/eventService/*"))
                 .build()
                 .apiInfo(apiInfo())
-                .pathMapping("/api/v1/eventService/*")
+                .pathMapping("/")
                 .forCodeGeneration(true)
                 .genericModelSubstitutes(ResponseEntity.class)
                 .useDefaultResponseMessages(false);
